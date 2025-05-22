@@ -1,3 +1,9 @@
+import { CajaResumen } from '../components/CajaResumen';
+
 export const Caja = () => {
-  return <h2>Caja diaria - Próximamente funcionalidad</h2>;
+  return (
+    <div className="py-6">
+      <CajaResumen />
+    </div>
+  );
 };
