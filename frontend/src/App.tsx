@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import RutaPrivada from './components/RutaPrivada';
 
 import { MainLayout } from './layouts/MainLayout';
 import { Login } from './pages/Login';
@@ -11,12 +12,13 @@ function App() {
     <BrowserRouter>
       <MainLayout>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/caja" element={<Caja />} />
-          <Route path="/configuracion" element={<Configuracion />} />
-          {/* Ruta para página no encontrada */}
+          <Route element={<RutaPrivada />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/caja" element={<Caja />} />
+            <Route path="/configuracion" element={<Configuracion />} />
+          </Route>
+          <Route path="/" element={<Navigate to="/login" />} />
           <Route path="*" element={<h2>404 - Página no encontrada</h2>} />
         </Routes>
       </MainLayout>
